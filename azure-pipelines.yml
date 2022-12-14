@@ -26,4 +26,4 @@ steps:
     appType: 'functionAppLinux'
     appName: 'azfunc-prom'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-  vmImage: ubuntu-latest
+
