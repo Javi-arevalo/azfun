@@ -7,7 +7,6 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
 
 steps:
 - task: Maven@3
@@ -22,3 +21,11 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+    
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: 'Azure for Students(13e68b8f-9c85-46f2-86fb-015fd5943e07)'
+    appType: 'functionAppLinux'
+    appName: 'azfunc-prom'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+  vmImage: ubuntu-latest
